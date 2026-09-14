@@ -12,13 +12,4 @@ public interface ClinicService {
 
     Clinic getClinic(Long id);
 
-    void clinicAddProcedure(Procedure procedure, Long clinicId);
-
-    List<Procedure> getProcedureByClinicId(Long clinicId);
-
-    Procedure getProcedureByProcedureId(Long procedureId);
-
-    void updateProcedure(Procedure procedure);
-
-    void deactivateProcedure(Long procedureId);
 }
