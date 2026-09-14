@@ -15,7 +15,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 
 @Getter
@@ -55,6 +54,4 @@ public class Procedure {
     @ManyToOne
     @JoinColumn(name = "clinic_id")
     private Clinic clinic;
-
-
 }

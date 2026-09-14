@@ -6,18 +6,19 @@ import com.skr1l.minierp.exception.ClinicNotFoundException;
 import com.skr1l.minierp.exception.ProcedureNotFoundException;
 import com.skr1l.minierp.repository.ClinicRepository;
 import com.skr1l.minierp.repository.ProcedureRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Objects;
 
 @Service
+@RequiredArgsConstructor
 public class ProcedureServiceImpl implements ProcedureService {
 
-    private ClinicRepository clinicRepository;
+    private final ClinicRepository clinicRepository;
 
-    private ProcedureRepository procedureRepository;
+    private final ProcedureRepository procedureRepository;
 
     @Override
     @Transactional

@@ -2,15 +2,11 @@ package com.skr1l.minierp.service;
 
 import com.skr1l.minierp.dto.ClinicRequestDto;
 import com.skr1l.minierp.entity.Clinic;
-import com.skr1l.minierp.entity.Procedure;
 import com.skr1l.minierp.exception.ClinicNotFoundException;
-import com.skr1l.minierp.exception.ProcedureNotFoundException;
 import com.skr1l.minierp.repository.ClinicRepository;
-import com.skr1l.minierp.repository.ProcedureRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -18,8 +14,6 @@ import java.util.Objects;
 public class ClinicServiceImpl implements ClinicService {
 
     private final ClinicRepository clinicRepository;
-
-    private final ProcedureRepository procedureRepository;
 
     @Override
     @Transactional
