@@ -16,6 +16,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -39,7 +41,7 @@ public class Procedure {
     @Column(nullable = false)
     @NotNull
     @Positive
-    private Double price;
+    private BigDecimal price;
 
     @Column(nullable = false)
     @NotNull
