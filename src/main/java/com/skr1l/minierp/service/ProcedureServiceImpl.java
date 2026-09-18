@@ -1,5 +1,6 @@
 package com.skr1l.minierp.service;
 
+import com.skr1l.minierp.dto.ProcedureRequestDto;
 import com.skr1l.minierp.entity.Clinic;
 import com.skr1l.minierp.entity.Procedure;
 import com.skr1l.minierp.exception.ClinicNotFoundException;
@@ -22,10 +23,16 @@ public class ProcedureServiceImpl implements ProcedureService {
 
     @Override
     @Transactional
-    public void clinicAddProcedure(Procedure procedure, Long clinicId) {
+    public void clinicAddProcedure(ProcedureRequestDto procedureDto, Long clinicId) {
 
-        Objects.requireNonNull(procedure, "procedure is null");
+        Objects.requireNonNull(procedureDto, "procedure is null");
         Objects.requireNonNull(clinicId, "clinicId is null");
+
+        Procedure procedure = new Procedure();
+        procedure.setProcedureName(procedureDto.procedureName());
+        procedure.setDescription(procedureDto.description());
+        procedure.setPrice(procedureDto.price());
+        procedure.setDurationMinutes(procedureDto.durationMinutes());
 
         Clinic clinic = clinicRepository.findById(clinicId)
                 .orElseThrow(() -> new ClinicNotFoundException(
@@ -59,18 +66,18 @@ public class ProcedureServiceImpl implements ProcedureService {
 
     @Override
     @Transactional
-    public void updateProcedure(Procedure procedure) {
-        Objects.requireNonNull(procedure, "procedure is null");
+    public void updateProcedure(ProcedureRequestDto procedureDto, Long procedureId) {
+        Objects.requireNonNull(procedureDto, "procedure is null");
+        Objects.requireNonNull(procedureId, "procedureId is null");
 
-        Procedure updatedProcedure = procedureRepository.findById(procedure.getId())
+        Procedure updatedProcedure = procedureRepository.findById(procedureId)
                 .orElseThrow(() -> new ProcedureNotFoundException(
-                        "Procedure with id " + procedure.getId() +" not found"));
+                        "Procedure with id " + procedureId +" not found"));
 
-        updatedProcedure.setProcedureName(procedure.getProcedureName());
-        updatedProcedure.setActive(procedure.isActive());
-        updatedProcedure.setDescription(procedure.getDescription());
-        updatedProcedure.setPrice(procedure.getPrice());
-        updatedProcedure.setDurationMinutes(procedure.getDurationMinutes());
+        updatedProcedure.setProcedureName(procedureDto.procedureName());
+        updatedProcedure.setDescription(procedureDto.description());
+        updatedProcedure.setPrice(procedureDto.price());
+        updatedProcedure.setDurationMinutes(procedureDto.durationMinutes());
 
         procedureRepository.save(updatedProcedure);
     }

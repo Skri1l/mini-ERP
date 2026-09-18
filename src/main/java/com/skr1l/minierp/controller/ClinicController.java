@@ -21,8 +21,8 @@ public class ClinicController {
 
     @GetMapping("/{id}")
     public Clinic getClinicById(@PathVariable Long id){
-
         Clinic clinic = clinicService.getClinic(id);
+
         return clinic;
     }
 
