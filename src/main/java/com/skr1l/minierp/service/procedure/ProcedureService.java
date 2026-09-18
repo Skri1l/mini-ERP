@@ -1,4 +1,4 @@
-package com.skr1l.minierp.service.Procedure;
+package com.skr1l.minierp.service.procedure;
 
 import com.skr1l.minierp.dto.ProcedureRequestDto;
 import com.skr1l.minierp.entity.Procedure;

@@ -1,4 +1,4 @@
-package com.skr1l.minierp.service.Doctor;
+package com.skr1l.minierp.service.doctor;
 
 import com.skr1l.minierp.dto.DoctorRequestDto;
 import com.skr1l.minierp.entity.Doctor;

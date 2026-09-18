@@ -2,7 +2,7 @@ package com.skr1l.minierp.controller;
 
 import com.skr1l.minierp.dto.DoctorRequestDto;
 import com.skr1l.minierp.entity.Doctor;
-import com.skr1l.minierp.service.Doctor.DoctorService;
+import com.skr1l.minierp.service.doctor.DoctorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

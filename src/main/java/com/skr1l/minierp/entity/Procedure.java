@@ -49,7 +49,7 @@ public class Procedure {
     @Column(nullable = false)
     private boolean isActive;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "clinic_id")
     private Clinic clinic;
 }
