@@ -33,6 +33,7 @@ public class ProcedureServiceImpl implements ProcedureService {
         procedure.setDescription(procedureDto.description());
         procedure.setPrice(procedureDto.price());
         procedure.setDurationMinutes(procedureDto.durationMinutes());
+        procedure.setActive(true);
 
         Clinic clinic = clinicRepository.findById(clinicId)
                 .orElseThrow(() -> new ClinicNotFoundException(
@@ -47,10 +48,6 @@ public class ProcedureServiceImpl implements ProcedureService {
     public List<Procedure> getProcedureByClinicId(Long clinicId) {
 
         Objects.requireNonNull(clinicId, "clinicId is null");
-
-        Clinic clinic = clinicRepository.findById(clinicId)
-                .orElseThrow(() -> new ClinicNotFoundException(
-                        "Clinic with id " + clinicId + " not found"));
 
         return procedureRepository.findAllByClinicId(clinicId);
     }

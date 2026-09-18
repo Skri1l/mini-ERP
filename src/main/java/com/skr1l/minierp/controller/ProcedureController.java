@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,35 +17,35 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/procedures")
+@RequestMapping("/api")
 public class ProcedureController {
 
     private final ProcedureService procedureService;
 
-    @GetMapping("/{procedureId}")
+    @GetMapping("/procedures/{procedureId}")
     public Procedure getProcedureById(@PathVariable Long procedureId){
 
         return procedureService.getProcedureByProcedureId(procedureId);
     }
 
-    @PostMapping("/{clinicId}/procedures")
+    @PostMapping("/clinics/{clinicId}/procedures")
     public void addProcedureToClinic(@Valid @RequestBody ProcedureRequestDto procedureDto,
                                      @PathVariable Long clinicId){
         procedureService.clinicAddProcedure(procedureDto, clinicId);
     }
 
-    @PatchMapping("/{procedureId}")
+    @PutMapping("/procedures/{procedureId}")
     public void updateProcedure(@Valid @RequestBody ProcedureRequestDto procedureDto,
                                 @PathVariable Long procedureId){
         procedureService.updateProcedure(procedureDto, procedureId);
     }
 
-    @GetMapping("/{clinicId}/procedures")
+    @GetMapping("/clinics/{clinicId}/procedures")
     public List<Procedure> getAllProceduresByClinicId(@PathVariable Long clinicId){
         return procedureService.getProcedureByClinicId(clinicId);
     }
 
-    @PatchMapping("/{procedureId}/deactivate")
+    @PatchMapping("/procedures/{procedureId}/deactivate")
     public void deactivateProcedure(@PathVariable Long procedureId){
         procedureService.deactivateProcedure(procedureId);
     }

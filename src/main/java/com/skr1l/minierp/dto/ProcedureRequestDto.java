@@ -17,7 +17,6 @@ public record ProcedureRequestDto(
         @Positive
         BigDecimal price,
 
-        @NotNull
         @Positive
         int durationMinutes
 )
