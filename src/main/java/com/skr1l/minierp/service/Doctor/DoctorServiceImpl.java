@@ -34,6 +34,7 @@ public class DoctorServiceImpl implements DoctorService {
         doctor.setLastName(doctorDto.lastName());
         doctor.setEmail(doctorDto.email());
         doctor.setPhoneNumber(doctorDto.phoneNumber());
+        doctor.setSpecialization(doctorDto.specialization());
         doctor.setPhotoUrl(doctorDto.photoUrl());
         doctor.setActive(true);
 
@@ -84,7 +85,8 @@ public class DoctorServiceImpl implements DoctorService {
         doctor.setEmail(doctorDto.email());
         doctor.setPhoneNumber(doctorDto.phoneNumber());
         doctor.setPhotoUrl(doctorDto.photoUrl());
-        doctor.setActive(doctor.isActive());
+        doctor.setSpecialization(doctorDto.specialization());
+
         doctorRepository.save(doctor);
     }
 

@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,11 +43,12 @@ public class Doctor {
     @NotBlank
     private String phoneNumber;
 
+
     @Column(nullable = false, unique = true)
+    @Email
     @NotBlank
     private String email;
 
-    @Column(unique = true)
     private String photoUrl;
 
     @Column(nullable = false)
