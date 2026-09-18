@@ -49,6 +49,9 @@ public class ProcedureServiceImpl implements ProcedureService {
 
         Objects.requireNonNull(clinicId, "clinicId is null");
 
+        clinicRepository.findById(clinicId)
+                .orElseThrow(() -> new ClinicNotFoundException("Clinic with id " + clinicId + " not found"));
+
         return procedureRepository.findAllByClinicId(clinicId);
     }
 

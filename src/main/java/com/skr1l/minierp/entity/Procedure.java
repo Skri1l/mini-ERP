@@ -43,12 +43,10 @@ public class Procedure {
     private BigDecimal price;
 
     @Column(nullable = false)
-    @NotNull
     @Positive
     private int durationMinutes;
 
     @Column(nullable = false)
-    @NotNull
     private boolean isActive;
 
     @ManyToOne
