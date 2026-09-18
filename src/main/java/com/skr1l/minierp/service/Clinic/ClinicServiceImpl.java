@@ -1,4 +1,4 @@
-package com.skr1l.minierp.service;
+package com.skr1l.minierp.service.Clinic;
 
 import com.skr1l.minierp.dto.ClinicRequestDto;
 import com.skr1l.minierp.entity.Clinic;
@@ -28,6 +28,7 @@ public class ClinicServiceImpl implements ClinicService {
         clinic.setPhoneNumber(clinicDto.phoneNumber());
 
         Clinic saved = clinicRepository.save(clinic);
+
         return saved.getId();
     }
 

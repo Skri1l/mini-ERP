@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler({ClinicNotFoundException.class , ProcedureNotFoundException.class})
+    @ExceptionHandler({ClinicNotFoundException.class ,
+            ProcedureNotFoundException.class,
+            DoctorNotFoundException.class})
     public ResponseEntity<ErrorResponse> handleException(Exception e) {
 
         ErrorResponse response = new ErrorResponse(

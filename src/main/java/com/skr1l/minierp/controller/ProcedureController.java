@@ -2,7 +2,7 @@ package com.skr1l.minierp.controller;
 
 import com.skr1l.minierp.dto.ProcedureRequestDto;
 import com.skr1l.minierp.entity.Procedure;
-import com.skr1l.minierp.service.ProcedureService;
+import com.skr1l.minierp.service.Procedure.ProcedureService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

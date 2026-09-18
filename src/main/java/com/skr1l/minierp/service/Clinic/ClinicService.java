@@ -1,10 +1,7 @@
-package com.skr1l.minierp.service;
+package com.skr1l.minierp.service.Clinic;
 
 import com.skr1l.minierp.dto.ClinicRequestDto;
 import com.skr1l.minierp.entity.Clinic;
-import com.skr1l.minierp.entity.Procedure;
-
-import java.util.List;
 
 public interface ClinicService {
 
