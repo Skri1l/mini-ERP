@@ -28,19 +28,19 @@ public class ProcedureController {
     }
 
     @PostMapping("/{clinicId}/procedures")
-    public void addProcedureToClinic(@RequestBody ProcedureRequestDto procedureDto,
+    public void addProcedureToClinic(@Valid @RequestBody ProcedureRequestDto procedureDto,
                                      @PathVariable Long clinicId){
         procedureService.clinicAddProcedure(procedureDto, clinicId);
     }
 
     @PatchMapping("/{procedureId}")
-    public void updateProcedure(@RequestBody ProcedureRequestDto procedureDto,
+    public void updateProcedure(@Valid @RequestBody ProcedureRequestDto procedureDto,
                                 @PathVariable Long procedureId){
         procedureService.updateProcedure(procedureDto, procedureId);
     }
 
     @GetMapping("/{clinicId}/procedures")
-    public List<Procedure> getAllProceduresByClinicId(@Valid @PathVariable Long clinicId){
+    public List<Procedure> getAllProceduresByClinicId(@PathVariable Long clinicId){
         return procedureService.getProcedureByClinicId(clinicId);
     }
 
